@@ -1,7 +1,7 @@
 ---
 export interface Props {
-	title: string;
-	body: string;
+	title?: string;
+	body?: string;
 	href?: string;
 	img?: string;
 	classes?: string;
@@ -12,28 +12,24 @@ const { classes, img, href, title, body } = Astro.props;
 
 <article
 	class:list={[
-		" border-2 rounded-md prose prose-a:no-underline shadow-lg flex flex-col",
+		"border-2 rounded-md prose prose-a:no-underline shadow flex flex-col",
 		classes,
 	]}
 >
-	<header class="p-4 pb-0">
-		<a href={href}>
-			<h2 class="mt-0">
-				{title}
-			</h2>
-		</a>
-	</header>
-	<p
-		class:list={["px-4 my-0", { "pb-4": !Astro.slots.has("default") && !img }]}
-	>
-		{body}
-	</p>
-	{img && <img src={img} alt="" />}
-	{
-		Astro.slots.has("default") && (
-			<footer class="px-4 pb-4 mt-auto">
-				<slot />
-			</footer>
-		)
-	}
+	<slot>
+		<header class="p-4 pb-0">
+			<a href={href}>
+				<h2 class="mt-0">
+					{title}
+				</h2>
+			</a>
+		</header>
+		<p
+			class:list={["px-4 my-0", { "pb-4": !Astro.slots.has("footer") && !img }]}
+		>
+			{body}
+		</p>
+		{img && <img src={img} alt="" />}
+		{Astro.slots.has("footer") && <slot name="footer" />}
+	</slot>
 </article>

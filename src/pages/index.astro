@@ -1,6 +1,5 @@
 ---
 import Master from "../layouts/Master.astro";
-import Card from "../components/Card.astro";
 
 const sections = ["cards", "buttons"];
 ---
@@ -18,12 +17,20 @@ const sections = ["cards", "buttons"];
 			</p>
 			<h2>Table of contents</h2>
 			<ul class="list not-prose">
+				<li class="list-none border-b last:border-b-0">
+					<a
+						href="components"
+						class="text-sm p-3 w-full block primary-transition"
+					>
+						Overview
+					</a>
+				</li>
 				{
 					sections.map((item) => (
 						<li class="list-none border-b last:border-b-0">
 							<a
-								href={"#" + item}
-								class="text-sm p-3 w-full block hover:bg-black hover:text-white invert-animation"
+								href={"/components/" + item}
+								class="text-sm p-3 w-full block primary-transition"
 							>
 								{item.charAt(0).toUpperCase() + item.slice(1)}
 							</a>
@@ -31,43 +38,6 @@ const sections = ["cards", "buttons"];
 					))
 				}
 			</ul>
-		</section>
-		<hr />
-		<section>
-			<header class="prose lg:prose-lg mb-6">
-				<h1 id="cards">Cards</h1>
-			</header>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-				<Card
-					title="Card With Header And Footer"
-					body="Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll. Toffee sugar plum sugar plum jelly-o jujubes bonbon dessert carrot cake."
-				>
-					<hr />
-					Footer text
-				</Card>
-				<Card
-					title="Card With Header, Img And Footer"
-					body="Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll. Toffee sugar plum sugar plum jelly-o jujubes bonbon dessert carrot cake."
-					img="https://source.unsplash.com/AJgFLjnmSs4"
-					classes="row-span-2"
-				>
-					<div class="flex justify-between items-center">
-						<span>Footer text</span>
-						<button class="btn">Button</button>
-					</div>
-				</Card>
-				<Card
-					title="Card With Header"
-					body="Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll. Toffee sugar plum sugar plum jelly-o jujubes bonbon dessert carrot cake."
-					classes="h-fit"
-				/>
-			</div>
-		</section>
-		<hr />
-		<section>
-			<header>
-				<h2></h2>
-			</header>
 		</section>
 	</main>
 </Master>
