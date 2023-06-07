@@ -23,7 +23,12 @@
   }
 
   hr {
-    @apply border;
+    @apply border relative z-0;
+  }
+
+  hr[data-text]::before {
+    @apply absolute inline-block text-black top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-1 z-10 h-fit;
+    --tw-content: attr(data-text);
   }
 
   .prose hr {
