@@ -50,7 +50,7 @@
   }
 
   .btn {
-    @apply px-5 py-2 font-medium border-2 rounded-lg shadow hover:shadow-sm active:shadow-none transition duration-100 ease-in primary-transition;
+    @apply px-5 py-2 font-medium border-2 rounded-lg shadow focus:shadow-sm hover:shadow-sm active:shadow-none transition duration-100 ease-in primary-transition;
   }
   .btn-sm {
     @apply px-3 py-1 text-sm shadow-sm;
@@ -93,19 +93,19 @@
 
 @layer utilities {
   .primary-transition {
-    @apply hover:bg-black hover:text-white;
+    @apply hover:bg-black focus:bg-black hover:text-white focus:text-white;
   }
   .info-transition {
-    @apply hover:bg-blue-500 hover:text-white;
+    @apply hover:bg-blue-500 focus:bg-blue-500 hover:text-white focus:text-white;
   }
   .warning-transition {
-    @apply hover:bg-yellow-400 hover:text-black;
+    @apply hover:bg-yellow-400 focus:bg-yellow-400 hover:text-black focus:text-black;
   }
   .danger-transition {
-    @apply hover:bg-red-500 hover:text-black;
+    @apply hover:bg-red-500 focus:bg-red-500 hover:text-black focus:text-black;
   }
   .success-transition {
-    @apply hover:bg-green-600 hover:text-black;
+    @apply hover:bg-green-600 focus:bg-green-600 hover:text-black focus:text-black;
   }
 }
 
